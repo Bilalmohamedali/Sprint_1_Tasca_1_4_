@@ -1,17 +1,26 @@
 package ejercicio2;
 
 public class CalculoDni {
+    private String letra;
+    private int numero;
 
-    public static char calculateLetter(double numberDNI){
-        char letter = ' ';
-        double remainder=0;
-        double divisor = 23;
+    public CalculoDni(int numero) {
+        this.numero = numero;
+        this.letra = calcularLetra(numero);
+    }
 
-        remainder = numberDNI % divisor;
-        String letters = "TRWAGMYFPDXBNJZSQVHLCKE";
-        letter = letters.charAt((int)remainder);
+    public String getLetra() {
+        return letra;
+    }
 
-        return letter;
+    public int getNumero() {
+        return numero;
+    }
+
+    private String calcularLetra(int numero) {
+        String caracteres="TRWAGMYFPDXBNJZSQVHLCKE";
+        int resto = numero%23;
+        return String.valueOf(caracteres.charAt(resto));
     }
 
 }
